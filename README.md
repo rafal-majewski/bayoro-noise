@@ -41,6 +41,39 @@ OTHER DEALINGS IN THE SOFTWARE.
 For more information, please refer to <http://unlicense.org/>
 
 ## Theory
+The algorithm basically calculates a sum of scaled, rotated and shifted sinuses (called *coefficients* throughout the documentation), that are divided into layers.
+
+Inspired by [the Weierstrass function](https://en.wikipedia.org/wiki/Weierstrass_function) and [the Fourier transform](https://en.wikipedia.org/wiki/Fourier_transform).
 ### 1D
-"Let $\text{S}1(N) = \sum{p=1}^N \text{E}(p)$"
+![Formula for 1D](../formula_1d.png)
+```
+let coefficients=[
+	{
+		shift: 2*PI*random(), // shift is a random number between <0;2*PI)
+		amplitude: 1, // sinus' amplitude, should decrease geometrically with each layer
+		frequency: 1 // sinus' frequency, should increase geometrically with each layer
+	},
+	{
+		shift: 2*PI*random(),
+		amplitude: 0.5,
+		frequency: 2
+	},
+	{
+		shift: 2*PI*random(),
+		amplitude: 0.25,
+		frequency: 4
+	},
+];
+
+function noise(x) {
+	let sum=0; // variable to store height
+	// iterate over all coefficients
+	for (let i=0; i<n; ++i) {
+		let coef=coefficients[i];
+		sum+=coef.amplitude*sin(coef.shift+x*coef.frequency);
+	}
+	return sum;
+}
+```
 ### 2D
+![Formula for 2D](../formula_2d.png)
