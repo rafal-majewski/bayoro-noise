@@ -42,6 +42,5 @@ For more information, please refer to <http://unlicense.org/>
 
 ## Theory
 ### 1D
-$ \sum_{\forall i}{x_i^{2}} $
-(https://latex.codecogs.com/gif.latex?noise(x)=\sum_{i}^{n-1}a_{i}\cdot&space;sin(s_{i}&plus;x\cdot&space;f_{i})" title="noise(x)=\sum_{i}^{n-1}a_{i}\cdot sin(s_{i}+x\cdot f_{i}))
+"Let $\text{S}1(N) = \sum{p=1}^N \text{E}(p)$"
 ### 2D
