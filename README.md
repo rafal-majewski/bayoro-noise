@@ -45,7 +45,7 @@ The algorithm basically calculates a sum of scaled, rotated and shifted sinuses 
 
 Inspired by [the Weierstrass function](https://en.wikipedia.org/wiki/Weierstrass_function) and [the Fourier transform](https://en.wikipedia.org/wiki/Fourier_transform).
 ### 1D
-![Formula for 1D](../formula_1d.png)
+![Formula for 1D](formula_1d.png)
 ```
 let coefficients=[
 	{
@@ -76,4 +76,4 @@ function noise(x) {
 }
 ```
 ### 2D
-![Formula for 2D](../formula_2d.png)
+![Formula for 2D](formula_2d.png)
