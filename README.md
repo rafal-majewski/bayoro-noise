@@ -140,34 +140,6 @@ let coefficients=[
 		shiftx: 2*PI*random(),
 		shifty: 2*PI*random(),
 		angle: 2*PI*random(),
-		amplitude: 1,
-		frequency: 1
-	},
-	{
-		shiftx: 2*PI*random(),
-		shifty: 2*PI*random(),
-		angle: 2*PI*random(),
-		amplitude: 1,
-		frequency: 1
-	},
-	{
-		shiftx: 2*PI*random(),
-		shifty: 2*PI*random(),
-		angle: 2*PI*random(),
-		amplitude: 0.5,
-		frequency: 2
-	},
-	{
-		shiftx: 2*PI*random(),
-		shifty: 2*PI*random(),
-		angle: 2*PI*random(),
-		amplitude: 0.5,
-		frequency: 2
-	},
-	{
-		shiftx: 2*PI*random(),
-		shifty: 2*PI*random(),
-		angle: 2*PI*random(),
 		amplitude: 0.5,
 		frequency: 2
 	},
@@ -191,56 +163,7 @@ let coefficients=[
 		angle: 2*PI*random(),
 		amplitude: 0.25,
 		frequency: 4
-	},
-	{
-		shiftx: 2*PI*random(),
-		shifty: 2*PI*random(),
-		angle: 2*PI*random(),
-		amplitude: 0.25,
-		frequency: 4
-	},
-	{
-		shiftx: 2*PI*random(),
-		shifty: 2*PI*random(),
-		angle: 2*PI*random(),
-		amplitude: 0.25,
-		frequency: 4
-	},
-	{
-		shiftx: 2*PI*random(),
-		shifty: 2*PI*random(),
-		angle: 2*PI*random(),
-		amplitude: 0.125,
-		frequency: 8
-	},
-	{
-		shiftx: 2*PI*random(),
-		shifty: 2*PI*random(),
-		angle: 2*PI*random(),
-		amplitude: 0.125,
-		frequency: 8
-	},
-	{
-		shiftx: 2*PI*random(),
-		shifty: 2*PI*random(),
-		angle: 2*PI*random(),
-		amplitude: 0.125,
-		frequency: 8
-	},
-	{
-		shiftx: 2*PI*random(),
-		shifty: 2*PI*random(),
-		angle: 2*PI*random(),
-		amplitude: 0.125,
-		frequency: 8
-	},
-	{
-		shiftx: 2*PI*random(),
-		shifty: 2*PI*random(),
-		angle: 2*PI*random(),
-		amplitude: 0.125,
-		frequency: 8
-	},
+	}
 ];
 
 function noise(x) {
