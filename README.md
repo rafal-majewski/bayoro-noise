@@ -93,4 +93,15 @@ function noise(x) {
 }
 ```
 ### 2D
-![Formula for 2D](formula_2d.png)
+#### Formula:
+
+![Formula for 2D](2d_formula.png)
+
+where:
+`n` is the number of layers
+`amplitude[i]` is the amplitude of i-th sinus (should decrease geometrically with each layer)
+`shift[ix]` is the x-shift of i-th sinus (has to be between 0 and 2π)
+`shift[iy]` is the y-shift of i-th sinus (has to be between 0 and 2π)
+`frequency[i]` is the frequency of i-th sinus (should increase geometrically with each layer)
+
+The generated noise will loop if all frequencies are multiples of π and the maximal value of `f(x)` is the sum of all amplitudes.
