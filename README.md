@@ -178,3 +178,9 @@ function noise(x) {
 }
 ```
 ![Example noise](2d_example.png)
+## Implementation
+### Javascript
+#### 1D
+hi
+#### 2D
+hi
