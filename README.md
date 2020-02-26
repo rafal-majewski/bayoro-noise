@@ -48,7 +48,13 @@ Inspired by [the Weierstrass function](https://en.wikipedia.org/wiki/Weierstrass
 #### Formula:
 
 ![Formula for 1D](1d_formula.png)
+where:
+`n` is the number of layers
+`amplitude[i]` is the amplitude of i-th sinus (should decrease geometrically with each layer)
+`shift[i]` is the shift of i-th sinus (has to be between 0 and 2π)
+`frequency[i]` is the frequency of i-th sinus (should increase geometrically with each layer)
 
+The generated noise will loop if all frequencies are multiples of π and the maximal value of `f(x)` is the sum of all amplitudes.
 #### Visual example:
 |Layer 0|Layer 1|Layer 2|Sum|
 |-------|-------|-------|---|
@@ -58,9 +64,9 @@ Inspired by [the Weierstrass function](https://en.wikipedia.org/wiki/Weierstrass
 ```
 let coefficients=[
 	{
-		shift: 2*PI*random(), // shift is a random number between <0;2*PI)
-		amplitude: 1, // sinus' amplitude, should decrease geometrically with each layer
-		frequency: 1 // sinus' frequency, should increase geometrically with each layer
+		shift: 2*PI*random(),
+		amplitude: 1,
+		frequency: 1
 	},
 	{
 		shift: 2*PI*random(),
