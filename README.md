@@ -181,6 +181,55 @@ function noise(x) {
 ## Implementation
 ### Javascript
 #### 1D
-hi
+```html
+<html>
+	<head>
+	</head>
+	<body>
+		<canvas id="canvas" style="border: 1px red solid;" width="400" height="400"></canvas>
+		<script>
+			let canvas=document.getElementById("canvas");
+			let ctx=canvas.getContext("2d");
+			// set map size
+			let size=canvas.width;
+			// declare a function that returns the noise generator
+			const createGenerator=(settings)=>{
+				// settings contains:
+				// layersCount - number of layers
+				// mapIndexToAmplitude - function that maps a layer index to its amplitude
+				// mapIndexToFrequency - function that maps a layer index to its frequency
+				let generator={layers: []};
+				for (let i=0; i<settings.layersCount; ++i) {
+					let layer={};
+					layer.shift=2*Math.PI*Math.random();
+					layer.amplitude=settings.mapIndexToAmplitude(i);
+					layer.frequency=settings.mapIndexToFrequency(i);
+					generator.layers.push(layer);
+				}
+				generator.calculate=(x)=>{
+					let sum=0;
+					for (let i=0; i<generator.layers.length; ++i) {
+						let layer=generator.layers[i];
+						sum+=layer.amplitude*Math.sin(layer.shift+x*layer.frequency);
+					}
+					return sum;
+				};
+				return generator;
+			};
+			// initialie the generator with 10 layers and some basic index mapping
+			let generator=createGenerator({
+				layersCount: 10,
+				mapIndexToAmplitude: (i)=>(Math.pow(2, -i-1)),
+				mapIndexToFrequency: (i)=>(2*Math.PI/size*Math.pow(2, i)),
+			});
+			// display the noise
+			for (let x=0; x<canvas.width; ++x) {
+				let h=generator.calculate(x)*canvas.height/2;
+				ctx.fillRect(x, canvas.height/2-h, 1, canvas.height/2+h)
+			}
+		</script>
+	</body>
+</html>
+```
 #### 2D
-hi
+todo
