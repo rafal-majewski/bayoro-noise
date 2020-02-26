@@ -83,7 +83,7 @@ let coefficients=[
 ];
 
 function noise(x) {
-	let sum=0; // variable to store height
+	let sum=0; // variable to store the sum
 	// iterate over all coefficients
 	for (let i=0; i<n; ++i) {
 		let coef=coefficients[i];
