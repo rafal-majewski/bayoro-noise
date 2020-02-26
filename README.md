@@ -48,6 +48,7 @@ Inspired by [the Weierstrass function](https://en.wikipedia.org/wiki/Weierstrass
 #### Formula:
 
 ![Formula for 1D](1d_formula.png)
+
 where:
 `n` is the number of layers
 `amplitude[i]` is the amplitude of i-th sinus (should decrease geometrically with each layer)
