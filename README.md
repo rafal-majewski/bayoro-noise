@@ -45,16 +45,16 @@ The algorithm basically calculates a sum of scaled, rotated and shifted sinuses 
 
 Inspired by [the Weierstrass function](https://en.wikipedia.org/wiki/Weierstrass_function) and [the Fourier transform](https://en.wikipedia.org/wiki/Fourier_transform).
 ### 1D
-Formula:
+#### Formula:
+
 ![Formula for 1D](1d_formula.png)
 
-Visual example:
+#### Visual example:
 |Layer 0|Layer 1|Layer 2|Sum|
 |-------|-------|-------|---|
 |![Layer 0](1d_layer_0.png)|![Layer 1](1d_layer_1.png)|![Layer 2](1d_layer_2.png)|![Sum](1d_sum.png)|
 
-
-Pseudocode example:
+#### Pseudocode example:
 ```
 let coefficients=[
 	{
