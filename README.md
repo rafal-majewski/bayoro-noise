@@ -11,8 +11,8 @@ For now, the noise can't be looped in dimensions higher than 1D.
 	- [2D](#2d)
 - [Implementation](#implementation)
 	- [JavaScript](#javascript)
-		- [1D](#javascript-1d)
-		- [2D](#javascript-2d)
+		- [1D](#1d-1)
+		- [2D](#2d-1)
 
 ## License
 This is free and unencumbered software released into the public domain.
