@@ -51,9 +51,13 @@ Inspired by [the Weierstrass function](https://en.wikipedia.org/wiki/Weierstrass
 
 where:
 `n` is the number of layers
+
 `amplitude[i]` is the amplitude of i-th sinus (should decrease geometrically with each layer)
+
 `shift[i]` is the shift of i-th sinus (has to be between 0 and 2π)
+
 `frequency[i]` is the frequency of i-th sinus (should increase geometrically with each layer)
+
 
 The generated noise will loop if all frequencies are multiples of π and the maximal value of `f(x)` is the sum of all amplitudes.
 #### Visual example:
@@ -94,14 +98,82 @@ function noise(x) {
 ```
 ### 2D
 #### Formula:
+The formula is pretty similar to its 1D version, but in order to hide vertical and horizontal lines layers have to be rotated and there should be multiple layers with the same frequency but different shifts and rotations.
 
 ![Formula for 2D](2d_formula.png)
 
 where:
 `n` is the number of layers
+
+`x'` is the x-part of `(x, y)` rotated around `(0, 0)` by a random angle stored in current layer
+
+`y'` is the y-part of `(x, y)` rotated around `(0, 0)` by a random angle stored in current layer
+
 `amplitude[i]` is the amplitude of i-th sinus (should decrease geometrically with each layer)
+
 `shift[ix]` is the x-shift of i-th sinus (has to be between 0 and 2π)
+
 `shift[iy]` is the y-shift of i-th sinus (has to be between 0 and 2π)
+
 `frequency[i]` is the frequency of i-th sinus (should increase geometrically with each layer)
 
-The generated noise will loop if all frequencies are multiples of π and the maximal value of `f(x)` is the sum of all amplitudes.
+Since every layer is randomly rotated the noise can't be looped.
+
+#### Pseudocode example:
+```
+let coefficients=[
+	{
+		shiftx: 2*PI*random(),
+		shifty: 2*PI*random(),
+		angle: 2*PI*random(),
+		amplitude: 1,
+		frequency: 1
+	},
+	{
+		shiftx: 2*PI*random(),
+		shifty: 2*PI*random(),
+		angle: 2*PI*random(),
+		amplitude: 1,
+		frequency: 1
+	},
+	{
+		shiftx: 2*PI*random(),
+		shifty: 2*PI*random(),
+		angle: 2*PI*random(),
+		amplitude: 0.5,
+		frequency: 2
+	},
+	{
+		shiftx: 2*PI*random(),
+		shifty: 2*PI*random(),
+		angle: 2*PI*random(),
+		amplitude: 0.5,
+		frequency: 2
+	},
+	{
+		shiftx: 2*PI*random(),
+		shifty: 2*PI*random(),
+		angle: 2*PI*random(),
+		amplitude: 0.25,
+		frequency: 4
+	},
+	{
+		shiftx: 2*PI*random(),
+		shifty: 2*PI*random(),
+		angle: 2*PI*random(),
+		amplitude: 0.25,
+		frequency: 4
+	},
+];
+
+function noise(x) {
+	let sum=0; // variable to store the sum
+	// iterate over all coefficients
+	for (let i=0; i<n; ++i) {
+		let coef=coefficients[i];
+		// rotation formula can be found on Wikipedia - https://en.wikipedia.org/wiki/Rotation_matrix#In_two_dimensions
+		sum+=coef.amplitude*sin(coef.shift+(Math.cos(coef.angle)*x-Math.sin(coef.angle)*y)*coef.frequency)*sin(coef.shift+(Math.sin(coef.angle)*x+Math.cos(coef.angle)*y)*coef.frequency);
+	}
+	return sum;
+}
+```
