@@ -7,8 +7,8 @@ For now, the noise can't be looped in dimensions higher than 1D.
 
 - [License](#License)
 - [Theory](#theory)
-	- [1D](#theory-1d)
-	- [2D](#theory-2d)
+	- [1D](#1d)
+	- [2D](#2d)
 - [Implementation](#implementation)
 	- [JavaScript](#javascript)
 		- [1D](#javascript-1d)
