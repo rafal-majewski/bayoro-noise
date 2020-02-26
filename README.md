@@ -59,6 +59,7 @@ The generated noise will loop if all frequencies are multiples of π and the max
 #### Visual example:
 |Layer 0|Layer 1|Layer 2|Sum|
 |-------|-------|-------|---|
+|amplitude: 1, frequency: 1|amplitude: 0.5, frequency: 2|amplitude: 0.25, frequency: 4||
 |![Layer 0](1d_layer_0.png)|![Layer 1](1d_layer_1.png)|![Layer 2](1d_layer_2.png)|![Sum](1d_sum.png)|
 
 #### Pseudocode example:
