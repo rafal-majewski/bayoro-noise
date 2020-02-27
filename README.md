@@ -216,7 +216,7 @@ function noise(x) {
 				};
 				return generator;
 			};
-			// initialie the generator with 10 layers and some basic index mapping
+			// initialize the generator with 10 layers and some basic index mapping
 			let generator=createGenerator({
 				layersCount: 10,
 				mapIndexToAmplitude: (i)=>(Math.pow(2, -i-1)),
@@ -232,4 +232,70 @@ function noise(x) {
 </html>
 ```
 #### 2D
-todo
+```html
+<html>
+	<head>
+		<style>
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" style="border: 1px red solid;" width="400" height="400"></canvas>
+		<script>
+			let canvas=document.getElementById("canvas");
+			let ctx=canvas.getContext("2d");
+			let size=canvas.width;
+			// declare a function that returns the noise generator
+			const createGenerator=(settings)=>{
+				// settings contains:
+				// layersCount - number of layers
+				// mapIndexToAmplitude - function that maps a layer index to its amplitude
+				// mapIndexToFrequency - function that maps a layer index to its frequency
+				let generator={layers: []};
+				for (let i=0; i<settings.layersCount; ++i) {
+					let layer={};
+					layer.angle=2*Math.PI*Math.random()
+					layer.shiftx=2*Math.PI*Math.random();
+					layer.shifty=2*Math.PI*Math.random();
+					layer.amplitude=settings.mapIndexToAmplitude(i);
+					layer.frequency=settings.mapIndexToFrequency(i);
+					generator.layers.push(layer);
+				}
+				generator.calculate=(x, y)=>{
+					let sum=0;
+					for (let i=0; i<generator.layers.length; ++i) {
+						let layer=generator.layers[i];
+						sum+=layer.amplitude*Math.sin(layer.shiftx+(x*Math.cos(layer.angle)-y*Math.sin(layer.angle))*layer.frequency)*Math.sin(layer.shifty+(x*Math.sin(layer.angle)+y*Math.cos(layer.angle))*layer.frequency);
+					}
+					return sum;
+				};
+				return generator;
+			};
+			// initialize the generator with 10 layers and some basic index mapping
+			let generator=createGenerator({
+				layersCount: 120,
+				mapIndexToAmplitude: (i)=>(Math.pow(2, -(Math.floor(i/20))-1)/20),
+				mapIndexToFrequency: (i)=>(2*Math.PI/size*Math.pow(2, Math.floor(i/20))),
+			});
+			// display the noise
+			for (let x=0; x<canvas.width; ++x) {
+				for (let y=0; y<canvas.height; ++y) {
+					let h=generator.calculate(x, y)*3;
+					// dark blue to cyan (water)
+					if (h < 0) ctx.fillStyle="rgb("+(0)+","+(255+255*h)+","+(255)+")"
+					// yellow to green (beach)
+					else if (h < 0.25) ctx.fillStyle="rgb("+(255-255*h*4)+","+(255)+","+(0)+")";
+					// green to orange
+					else if (h < 0.5) ctx.fillStyle="rgb("+((h-0.25)*4*255)+","+(255-(h-0.25)*2*255)+","+(0)+")";
+					// orange to red (hill)
+					else if (h < 0.75) ctx.fillStyle="rgb("+(255)+","+(255/2-(h-0.5)*4*255/2)+","+(0)+")";
+					// red to white (mountain)
+					else if (h < 1) ctx.fillStyle="rgb("+(255)+","+(0+(h-0.75)*4*255)+","+(0+(h-0.75)*4*255)+")";
+					// white (off scale mountain)
+					else ctx.fillStyle="rgb("+(255)+","+(255)+","+(255)+")";
+					ctx.fillRect(x, y, 1, 1);
+				}
+			}
+		</script>
+	</body>
+</html>
+```
