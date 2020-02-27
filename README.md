@@ -196,8 +196,8 @@ function noise(x) {
 			const createGenerator=(settings)=>{
 				// settings contains:
 				// layersCount - number of layers
-				// mapIndexToAmplitude - function that maps a layer index to its amplitude
-				// mapIndexToFrequency - function that maps a layer index to its frequency
+				// mapIndexToAmplitude - function that maps a layer's index to its amplitude
+				// mapIndexToFrequency - function that maps a layer's index to its frequency
 				let generator={layers: []};
 				for (let i=0; i<settings.layersCount; ++i) {
 					let layer={};
@@ -248,8 +248,8 @@ function noise(x) {
 			const createGenerator=(settings)=>{
 				// settings contains:
 				// layersCount - number of layers
-				// mapIndexToAmplitude - function that maps a layer index to its amplitude
-				// mapIndexToFrequency - function that maps a layer index to its frequency
+				// mapIndexToAmplitude - function that maps a layer's index to its amplitude
+				// mapIndexToFrequency - function that maps a layer's index to its frequency
 				let generator={layers: []};
 				for (let i=0; i<settings.layersCount; ++i) {
 					let layer={};
