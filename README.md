@@ -299,3 +299,5 @@ function noise(x) {
 	</body>
 </html>
 ```
+![Example 0](javascript_2d_example_0.png)
+![Example 1](javascript_2d_example_1.png)
