@@ -253,7 +253,7 @@ function noise(x) {
 				let generator={layers: []};
 				for (let i=0; i<settings.layersCount; ++i) {
 					let layer={};
-					layer.angle=2*Math.PI*Math.random()
+					layer.angle=2*Math.PI*Math.random();
 					layer.shiftx=2*Math.PI*Math.random();
 					layer.shifty=2*Math.PI*Math.random();
 					layer.amplitude=settings.mapIndexToAmplitude(i);
